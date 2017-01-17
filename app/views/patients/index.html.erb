@@ -1,0 +1,18 @@
+<h1>Caseload</h1>
+<%= link_to 'Edit Profile', edit_user_path(current_user) %>
+<!-- Apply search to check database for existing patient -->
+<!-- If patient does not exist, link to create new patient -->
+<%= link_to 'Create New Patient/Observation', observations_new_path%>
+
+
+<hr>
+<% current_user.patients.distinct.each do |p| %>
+  <p>
+    <%= p.first_name %>
+    <%= p.last_name %>
+    <%= p.age %>
+    <%= link_to 'Patient Details', patient_path(p) %>
+  </p>
+<% end %>
+
+

@@ -1,0 +1,32 @@
+<h1>New Patient Form</h1>
+
+<%= form_for @patient do |f| %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %>
+    <%= f.select :gender, ['Female', 'Male', 'Do not disclose'], :prompt => 'Select One:' %>
+  </div>
+  <div class="field">
+  Select all that apply:
+  <br>
+    <%= f.check_box :home_session %>
+    <%= f.label :home_session %>
+    <%= f.check_box :school_session %>
+    <%= f.label :school_session %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+
+<% end %>
+

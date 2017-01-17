@@ -1,0 +1,19 @@
+<h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+<%= image_tag current_user.image.url %>
+<hr>
+<p>
+  Role: <%= current_user.role %>
+  <br>
+  Location: <%= current_user.location %>
+  <br>
+  Sector(s): <%= current_user.sector %>
+  <br>
+  Email: <%= current_user.email %>
+  <br>
+</p>
+
+<%= link_to 'Edit', edit_user_path %> |
+<%= link_to "Back to Dashboard", patients_path %>
+<br>
+<br>
+

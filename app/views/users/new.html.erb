@@ -1,0 +1,54 @@
+<h1>Create an Account</h1>
+<%= form_for @user, html: { multipart: true } do |f|  %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :role %>
+    <%= f.select :role, ['Audiologist', 'Occupational Therapist', 'Psychologist', 'Speech Language Pathologist', 'Teacher', 'Physical Therapist'], :prompt => 'Select One' %>
+  </div>
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+  Select one:
+    <%= f.radio_button :sector, "private" %>
+    <%= f.label :sector_private, "I work in the private sector" %>
+    <%= f.radio_button :sector, "public" %>
+    <%= f.label :sector_public, "I work in the public sector" %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+<% end %>
+
+

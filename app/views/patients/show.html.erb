@@ -1,0 +1,36 @@
+<h1><%= @patient.first_name %></h1><h1><%= @patient.last_name %></h1>
+<hr>
+<%= link_to 'Edit Patient Details', edit_patient_path %> |
+<%= link_to "Delete Patient", patients_path, method: :delete, data: {confirm: 'Are you sure?'} %> |
+<%= link_to "Back to Dashboard", patients_path %>
+<hr>
+<p>
+  Age: <%= @patient.age %>
+  <br>
+  Gender: <%= @patient.gender %>
+  <br>
+  Parent(s):
+  <br>
+  List of Specialists:
+  <br>
+  Type of Sessions:
+  <br>
+  School Session: <%= @patient.school_session %>
+  <br>
+  Home Session: <%= @patient.home_session %>
+</p>
+
+<h3>List of Observations:</h3>
+<%= link_to "Create New Observation", new_patient_observation_path(@patient) %>
+<hr>
+<% @patient.observations.each do |o| %>
+<div>
+  <%= link_to o.activity, observation_path(o) %>
+</div>
+<% end %>
+
+
+<br>
+<br>
+
+

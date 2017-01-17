@@ -1,0 +1,18 @@
+<hr>
+<p>
+  Date: <%= @observation.date %>
+  <br>
+  Activity: <%= @observation.activity %>
+  <br>
+  Target Program: <%= @observation.target_program %>
+  <br>
+  Prompt: <%= @observation.prompt %>
+  <br>
+  Behaviors: <%= @observation.behaviors %>
+  <br>
+  Session Notes: <%= @observation.session_notes %>
+  <br>
+</p>
+<%= link_to 'Edit', edit_observation_path %> | <%= link_to "Back to Patient", patient_path(@observation.patient) %> |
+<%= link_to "Delete Observation", observation_path(@observation), method: :delete, data: {confirm: 'Are you sure?'} %>
+<br>

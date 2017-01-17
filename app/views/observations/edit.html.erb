@@ -1,0 +1,29 @@
+<h1>Edit Observation for <%= @observation.patient.first_name %></h1>
+
+<%= form_for [@patient, @observation] do |f| %>
+<div>
+  <%= f.label :date %>
+  <%= f.date_field :date, :value => Date.today %>
+</div>
+<div>
+  <%= f.label :activity %>
+  <%= f.text_field :activity %>
+</div>
+<div>
+  <%= f.label :target_program, 'Target Program' %>
+  <%= f.text_field :target_program %>
+</div>
+<div>
+  <%= f.label :prompt %>
+  <%= f.text_field :prompt %>
+</div>
+<div>
+  <%= f.label :behaviors %>
+  <%= f.text_field :behaviors %>
+</div>
+<div>
+  <%= f.label :session_notes %>
+  <%= f.text_field :session_notes %>
+</div>
+<%= f.submit "Save" %> | <%= link_to "Cancel", @observation %>
+<% end %>

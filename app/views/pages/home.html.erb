@@ -1,0 +1,29 @@
+<div class="container" id="contain-login">
+<div class="text-center">
+  <h1>Log In</h1>
+  <p id="alert"><%= alert %></p>
+</div>
+<%= form_tag sessions_path, class: 'form-horizontal' do %>
+  <div class="field form-group">
+    <%= label_tag :email, nil, class: 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <%= text_field_tag :email, params[:email], class: 'form-control', placeholder: 'Email' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <%= label_tag :password, nil, class: 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <%= password_field_tag :password, params[:password], class: 'form-control', placeholder: 'Password' %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <span class="actions"><%= submit_tag "Log In", class: 'btn btn-default' %></span>
+      <span id="create-account-link"><%= link_to 'Need an account?', new_user_path %></span>
+    </div>
+  </div>
+<% end %>
+</div>
+
+
+

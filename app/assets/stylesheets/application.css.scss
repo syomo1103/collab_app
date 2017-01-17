@@ -1,0 +1,86 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+  *= require rails_bootstrap_forms
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+* {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navbar, .navbar-default {
+  background-color: #0B8A94;
+  color: white;
+  border-radius: 0px;
+}
+
+.navbar-brand {
+  color: white;
+  height: 65px;
+}
+
+.glyphicon {
+  color: white;
+  font-size: 30px;
+}
+
+#app-name {
+  font-family: 'Love Ya Like A Sister', cursive;
+  color: white;
+  font-size: 30px;
+}
+
+.icon-bar {
+  border-color: white;
+}
+
+#bar-one {
+  margin-bottom: 7px;
+}
+
+#bar-two {
+  margin-bottom: 7px;
+}
+
+.navbar-toggle {
+  margin-top: 12px;
+}
+
+.form-horizontal {
+    width: 40%;
+    margin: 40px auto 0;
+}
+
+.form-control {
+  width: 80%;
+}
+
+label.control-label {
+  padding-left: 0;
+}
+
+#create-account-link {
+  margin-left: 15px;
+}
+
+#contain-login {
+  margin-top: 12%;
+}
+
+/*#email {
+  border-radius: 1px;
+}*/
