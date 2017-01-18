@@ -1,7 +1,7 @@
 <h1><%= @patient.first_name %></h1><h1><%= @patient.last_name %></h1>
 <hr>
 <%= link_to 'Edit Patient Details', edit_patient_path %> |
-<%= link_to "Delete Patient", patients_path, method: :delete, data: {confirm: 'Are you sure?'} %> |
+<%= link_to "Delete Patient", patient_path(@patient), method: :delete, data: {confirm: 'Are you sure?'} %> |
 <%= link_to "Back to Dashboard", patients_path %>
 <hr>
 <p>

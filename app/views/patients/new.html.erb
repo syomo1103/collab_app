@@ -1,4 +1,4 @@
-<h1>New Patient Form</h1>
+<h1>Create New Patient</h1>
 
 <%= form_for @patient do |f| %>
 
@@ -26,7 +26,9 @@
     <%= f.check_box :school_session %>
     <%= f.label :school_session %>
   </div>
-  <div class="actions"><%= f.submit %></div>
-
+  <div class="actions">
+    <%= f.submit %>
+    <%= link_to 'Back', observations_new_path %>
+  </div>
 <% end %>
 
