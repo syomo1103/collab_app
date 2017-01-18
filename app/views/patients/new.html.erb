@@ -1,7 +1,9 @@
 <h1>Create New Patient</h1>
 
 <%= form_for @patient do |f| %>
-
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>

@@ -28,7 +28,7 @@ class PatientsController < ApplicationController
 
   def update
     @patient = Patient.find(params[:id])
-    @patient.update_attributes(params.require(:patient).permit(:first_name, :last_name, :age, :gender, :home_session, :school_session))
+    @patient.update_attributes(patient_params)
     redirect_to @patient
   end
 
@@ -51,7 +51,7 @@ class PatientsController < ApplicationController
 
   private
   def patient_params
-    params.require(:patient).permit(:first_name, :last_name, :age, :gender, :home_session, :school_session)
+    params.require(:patient).permit(:first_name, :last_name, :age, :gender, :home_session, :school_session, :image)
   end
 
 end

@@ -1,0 +1,108 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+* {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navbar, .navbar-default {
+  background-color: #0B8A94;
+  color: white;
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+.navbar-brand {
+  color: white;
+  height: 65px;
+}
+
+.navbar-text, .navbar-right, .btn, .btn-default {
+  margin-top: 6px;
+}
+
+#welcome-profile-link {
+  color: white;
+  padding-top: 5px;
+}
+
+#view-profile-link {
+  color: white;
+  padding-top: 5px;
+  padding-right: 10px;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}
+
+
+.glyphicon {
+  color: white;
+  font-size: 30px;
+}
+
+#app-name {
+  font-family: 'Love Ya Like A Sister', cursive;
+  color: white;
+  font-size: 30px;
+}
+
+.icon-bar {
+  border-color: white;
+}
+
+#bar-one {
+  margin-bottom: 7px;
+}
+
+#bar-two {
+  margin-bottom: 7px;
+}
+
+.navbar-toggle {
+  margin-top: 12px;
+}
+
+.form-horizontal {
+    width: 40%;
+    margin: 40px auto 0;
+}
+
+.form-control {
+  width: 80%;
+}
+
+label.control-label {
+  padding-left: 0;
+}
+
+#create-account-link {
+  margin-left: 15px;
+}
+
+#contain-login {
+  margin-top: 12%;
+}
+
+.image-cropper {
+  border-radius: 50%;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.image-cropper img {
+  height: 100%;
+  min-width: 100%;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+}
+/*#email {
+  border-radius: 1px;
+}*/

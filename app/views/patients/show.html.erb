@@ -1,4 +1,12 @@
-<h1><%= @patient.first_name %></h1><h1><%= @patient.last_name %></h1>
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1 class="text-center"><%= @patient.first_name %> <%= @patient.last_name %></h1>
+    <br>
+    <%= image_tag @patient.image.url, class:'img-responsive rounded image-cropper', id:'profile-pic' %>
+    <%= link_to 'Create New Observation', new_patient_observation_path(@patient), class: 'btn btn-primary'%>
+  </div>
+</div>
+
 <hr>
 <%= link_to 'Edit Patient Details', edit_patient_path %> |
 <%= link_to "Delete Patient", patient_path(@patient), method: :delete, data: {confirm: 'Are you sure?'} %> |
@@ -21,7 +29,6 @@
 </p>
 
 <h3>List of Observations:</h3>
-<%= link_to "Create New Observation", new_patient_observation_path(@patient) %>
 <hr>
 <% @patient.observations.each do |o| %>
 <div>

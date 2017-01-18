@@ -1,18 +1,35 @@
-<h1>Caseload</h1>
-<%= link_to 'View Profile', user_path(current_user) %>
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Caseload</h1>
+    <br>
+    <%= link_to 'Create Observation for New Patient', observations_new_path, class: 'btn btn-primary'%>
+  </div>
+</div>
+
+
 <!-- Apply search to check database for existing patient -->
 <!-- If patient does not exist, link to create new patient -->
-<%= link_to 'Create New Patient/Observation', observations_new_path%>
+
 
 
 <hr>
-<% current_user.patients.distinct.each do |p| %>
-  <p>
-    <%= p.first_name %>
-    <%= p.last_name %>
-    <%= p.age %>
-    <%= link_to 'Patient Details', patient_path(p) %>
-  </p>
-<% end %>
 
+ <!-- Caseload Grid Section -->
+<div class="container">
+  <section id="caseload">
+    <div class="row">
+    <% current_user.patients.distinct.each do |p| %>
+        <div class="col-md-3 text-center">
+          <div id="profile-pic">
+            <%= image_tag p.image.url, class:'img-responsive rounded image-cropper', height: '300' %>
+          </div>
+          <%= p.first_name %>
+          <%= p.last_name %>
+          <br>
+          <%= link_to 'Patient Details', patient_path(p) %>
+        </div>
+  <% end %>
+    </div>
+  </section>
+</div>
 

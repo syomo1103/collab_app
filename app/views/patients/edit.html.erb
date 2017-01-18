@@ -1,4 +1,7 @@
 <%= form_for [@patient] do |f| %>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
   <div>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
