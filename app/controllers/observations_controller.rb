@@ -26,7 +26,7 @@ class ObservationsController < ApplicationController
   end
 
   def create_new
-    @observation = Observation.new(params.require(:observation).permit(:patient_id, :user_id, :date, :activity, :target_program, :prompt, :behaviors, :session_notes))
+    @observation = Observation.new(params.require(:observation).permit(:patient_id, :user_id, :date, :goal, :program, :prompt, :behavior, :session_notes))
     @patient = @observation.patient
     @observation.user = current_user
     if @observation.save
@@ -38,6 +38,8 @@ class ObservationsController < ApplicationController
 
   def show
     @observation = Observation.find(params[:id])
+    @comment = Comment.new
+    @my_comments = @observation.comments.where(user_id: current_user.id)
   end
 
   def edit
@@ -59,7 +61,7 @@ class ObservationsController < ApplicationController
 
   private
   def ob_params
-    params.require(:observation).permit(:date, :activity, :target_program, :prompt, :behaviors, :session_notes)
+    params.require(:observation).permit(:date, :goal, :program, :prompt, :behavior, :session_notes)
   end
 
 end

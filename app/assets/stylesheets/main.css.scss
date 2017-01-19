@@ -37,7 +37,7 @@
 }
 
 
-.glyphicon {
+.glyphicon-leaf {
   color: white;
   font-size: 30px;
 }
@@ -99,10 +99,31 @@ label.control-label {
 .image-cropper img {
   height: 100%;
   min-width: 100%;
-  left: 50%;
   position: relative;
-  transform: translateX(-50%);
+  vertical-align: top;
 }
-/*#email {
-  border-radius: 1px;
-}*/
+
+#index-pic:hover {
+  opacity: 0.4;
+  transition: all ease 0.6s;
+  -webkit-transition: all ease 0.6s;
+  -moz-transition: all ease 0.6s;
+}
+
+.alert, .alert-warning {
+  margin-top: 20px;
+}
+
+#comment_content {
+  display: inline-block;
+}
+
+#comment-button {
+  margin-bottom: 55px;
+  margin-left: 6px;
+}
+
+.glyphicon-pencil {
+  margin-right: 5px;
+}
+

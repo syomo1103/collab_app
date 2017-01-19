@@ -1,18 +1,66 @@
 <hr>
-<p>
-  Date: <%= @observation.date %>
-  <br>
-  Activity: <%= @observation.activity %>
-  <br>
-  Target Program: <%= @observation.target_program %>
-  <br>
-  Prompt: <%= @observation.prompt %>
-  <br>
-  Behaviors: <%= @observation.behaviors %>
-  <br>
-  Session Notes: <%= @observation.session_notes %>
-  <br>
-</p>
-<%= link_to 'Edit', edit_observation_path %> | <%= link_to "Back to Patient", patient_path(@observation.patient) %> |
-<%= link_to "Delete Observation", observation_path(@observation), method: :delete, data: {confirm: 'Are you sure?'} %>
+<div class="text-center">
+<% if @observation.user == current_user %>
+  <%= link_to 'Edit', edit_observation_path %>
+  |
+  <%= link_to "Delete Observation", observation_path(@observation), method: :delete, data: {confirm: 'Are you sure?'} %>
+  |
+  <%= link_to "Back to Patient", patient_path(@observation.patient) %>
+  <% else %>
+  <%= link_to "Back to Patient", patient_path(@observation.patient) %>
+  <% end %>
+</div>
 <br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+      <div class="panel-heading"><%= @observation.goal %> with <%= @observation.user.first_name %> on <%= @observation.date %></div>
+      <div class="panel-body">
+        <p>
+        Date: <%= @observation.date %>
+        <br>
+        Goal: <%= @observation.goal %>
+        <br>
+        Program: <%= @observation.program %>
+        <br>
+        Prompt(s): <%= @observation.prompt %>
+        <br>
+        Behavior(s): <%= @observation.behavior %>
+        <br>
+        Session Notes: <%= @observation.session_notes %>
+        <br>
+        </p>
+      </div>
+
+  <!-- List group -->
+
+  <ul class="list-group">
+    <% @observation.comments.each do |c| %>
+      <li class="list-group-item">
+        <%= c.content %> <br><br>
+        @<%= link_to c.user.first_name, user_path(c.user.id) %>
+        added <%= time_ago_in_words(c.created_at) %> ago
+        <% if c.user == current_user %>
+          <span>
+            <%= link_to '', comment_path(c), method: :delete, data: {confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-trash pull-right' %>
+          </span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+    <%= form_for [@observation, @comment] do |f| %>
+    <span class="field form-group">
+      <%= f.text_area :content, class: 'form-control', :required => true %>
+    </span>
+    <span class="actions">
+      <%= f.submit "Add Comment", class: 'btn btn-primary', id: 'comment-button' %>
+    </span>
+    <% end %>
+  </div>
+</div>
+</div>

@@ -11,22 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117184121) do
+ActiveRecord::Schema.define(version: 20170119185609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "observation_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "comments", ["observation_id"], name: "index_comments_on_observation_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "observations", force: :cascade do |t|
     t.string   "date"
-    t.string   "activity"
-    t.string   "target_program"
+    t.string   "goal"
+    t.string   "program"
     t.boolean  "prompt"
-    t.string   "behaviors"
+    t.string   "behavior"
     t.text     "session_notes"
     t.integer  "patient_id"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "observations", ["patient_id", "user_id"], name: "index_observations_on_patient_id_and_user_id", using: :btree
@@ -36,10 +47,13 @@ ActiveRecord::Schema.define(version: 20170117184121) do
   create_table "patients", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "diagnosis"
+    t.string   "parent"
+    t.string   "parent_email"
     t.integer  "age"
     t.string   "gender"
-    t.boolean  "home_session"
-    t.boolean  "school_session"
+    t.string   "home_session"
+    t.string   "school_session"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -51,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170117184121) do
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "field"
     t.string   "role"
     t.string   "location"
     t.string   "sector"
@@ -64,6 +79,8 @@ ActiveRecord::Schema.define(version: 20170117184121) do
     t.datetime "updated_at",         null: false
   end
 
+  add_foreign_key "comments", "observations"
+  add_foreign_key "comments", "users"
   add_foreign_key "observations", "patients"
   add_foreign_key "observations", "users"
 end

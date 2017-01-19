@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   post '/observations', to: 'observations#create_new'
 
   resources :patients, shallow: true do
-    resources :observations
+    resources :observations do
+      resources :comments
+    end
   end
-
 
   resources :sessions, only: [:new, :create, :destroy]
   post '/login', to: 'sessions#new'

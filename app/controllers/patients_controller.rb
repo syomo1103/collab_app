@@ -9,9 +9,8 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.new(patient_params)
-    # @patient.observation = @observation
-    # @patient.user = current_user
     if @patient.save
+      flash[:warning] = 'Patient has been created. NOTE: This patient has not been added to your caseload. Please create an observation.'
       redirect_to @patient
     else
       render :new
@@ -20,6 +19,9 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find(params[:id])
+    @my_obs = current_user.observations.where(patient_id: @patient.id)
+    @other_obs = @patient.observations.where.not(user_id: current_user.id)
+    @users = @patient.users.all
   end
 
   def edit
@@ -37,21 +39,11 @@ class PatientsController < ApplicationController
     current_user.observations.where(patient_id: @patient).destroy_all
     @patient.destroy if @patient.observations.count == 0
     redirect_to patients_path
-    # p params
-    # @observation = @patient.observations
-    # if @patient.observations.count == 1 && (@observation.user_id == current_user.id)
-    #   p '*' * 50
-    #   p @patient
-    #   # @patient.destroy
-    #   Patient.destroy(@patient)
-    #   redirect_to patients_path
-    # else
-    # end
   end
 
   private
   def patient_params
-    params.require(:patient).permit(:first_name, :last_name, :age, :gender, :home_session, :school_session, :image)
+    params.require(:patient).permit(:first_name, :last_name, :age, :gender, :diagnosis, :parent, :parent_email, :home_session, :school_session, :image)
   end
 
 end

@@ -4,19 +4,31 @@
   </div>
   <div>
     <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, :required => true %>
   </div>
   <div>
     <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, :required => true %>
+  </div>
+  <div>
+    <%= f.label :diagnosis %>
+    <%= f.text_field :diagnosis, :required => true %>
   </div>
   <div>
     <%= f.label :age %>
-    <%= f.text_field :age %>
+    <%= f.text_field :age, :required => true %>
   </div>
   <div>
     <%= f.label :gender %>
-    <%= f.select :gender, ['Female', 'Male', 'Do not disclose'], :prompt => 'Select One:' %>
+    <%= f.select :gender, ['Female', 'Male', 'Do not disclose'], :prompt => 'Select One:', :required => true %>
+  </div>
+  <div>
+    <%= f.label :parent %>
+    <%= f.text_field :parent, :required => true %>
+  </div>
+  <div>
+    <%= f.label :parent_email %>
+    <%= f.email_field :parent_email, :required => true %>
   </div>
   <div class="field">
   Select all that apply:

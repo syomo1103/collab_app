@@ -1,29 +1,35 @@
-<h1>Edit Observation for <%= @observation.patient.first_name %></h1>
-
+<div class="container">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<h1 class="text-center">Edit Observation for <%= @observation.patient.first_name %></h1>
+<hr>
 <%= form_for [@patient, @observation] do |f| %>
-<div>
+<div class="field form-group">
   <%= f.label :date %>
-  <%= f.date_field :date, :value => Date.today %>
+  <%= f.date_field :date, :value => Date.today, class: 'form-control', :required => true %>
 </div>
-<div>
-  <%= f.label :activity %>
-  <%= f.text_field :activity %>
+<div class="field form-group">
+  <%= f.label :goal %>
+  <%= f.text_field :goal, class: 'form-control', :required => true %>
 </div>
-<div>
-  <%= f.label :target_program, 'Target Program' %>
-  <%= f.text_field :target_program %>
+<div class="field form-group">
+  <%= f.label :program, 'Target Program' %>
+  <%= f.text_field :program, class: 'form-control', :required => true %>
 </div>
-<div>
+<div class="field form-group">
   <%= f.label :prompt %>
-  <%= f.text_field :prompt %>
+  <%= f.text_field :prompt, class: 'form-control' %>
 </div>
-<div>
-  <%= f.label :behaviors %>
-  <%= f.text_field :behaviors %>
+<div class="field form-group">
+  <%= f.label :behavior %>
+  <%= f.text_field :behavior, class: 'form-control' %>
 </div>
-<div>
+<div class="field form-group">
   <%= f.label :session_notes %>
-  <%= f.text_field :session_notes %>
+  <%= f.text_area :session_notes, class: 'form-control', :required => true %>
 </div>
 <%= f.submit "Save" %> | <%= link_to "Cancel", @observation %>
 <% end %>
+</div>
+</div>
+</div>

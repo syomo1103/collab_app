@@ -2,42 +2,82 @@
   <div class="container text-center">
     <h1 class="text-center"><%= @patient.first_name %> <%= @patient.last_name %></h1>
     <br>
-    <%= image_tag @patient.image.url, class:'img-responsive rounded image-cropper', id:'profile-pic' %>
+    <%= image_tag @patient.image.url, class:'img-responsive rounded image-cropper' %>
     <%= link_to 'Create New Observation', new_patient_observation_path(@patient), class: 'btn btn-primary'%>
+    <%= mail_to @patient.parent_email, 'Contact Parent', class: 'btn btn-primary' %>
   </div>
 </div>
-
-<hr>
-<%= link_to 'Edit Patient Details', edit_patient_path %> |
-<%= link_to "Delete Patient", patient_path(@patient), method: :delete, data: {confirm: 'Are you sure?'} %> |
-<%= link_to "Back to Dashboard", patients_path %>
-<hr>
-<p>
-  Age: <%= @patient.age %>
-  <br>
-  Gender: <%= @patient.gender %>
-  <br>
-  Parent(s):
-  <br>
-  List of Specialists:
-  <br>
-  Type of Sessions:
-  <br>
-  School Session: <%= @patient.school_session %>
-  <br>
-  Home Session: <%= @patient.home_session %>
-</p>
-
-<h3>List of Observations:</h3>
-<hr>
-<% @patient.observations.each do |o| %>
-<div>
-  <%= link_to o.activity, observation_path(o) %>
+<!-- <div class="alert alert-warning" role="alert"> -->
+<% flash.each do |message_type, alert| %>
+<div class="container">
+  <div class="text-center alert alert-<%= message_type%>"><%= alert %></div>
 </div>
 <% end %>
+<hr>
+<div class="text-center">
+  <%= link_to 'Edit Patient Details', edit_patient_path %> |
+  <%= link_to "Delete Patient", patient_path(@patient), method: :delete, data: {confirm: 'Are you sure?'} %> |
+  <%= link_to "Back to Dashboard", patients_path %>
+</div>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-md-offset-2">
+    <h3>Patient Details</h3>
+      <p>
+        Age: <%= @patient.age %>
+        <br>
+        Gender: <%= @patient.gender %>
+        <br>
+        Parent(s): <%= @patient.parent %>
+        <br>
+        Specialist(s):
+        <ul>
+        <% @users.distinct.each do |u| %>
+          <li><%= u.first_name %></li>
+        <% end %>
+        </ul>
+        Type of Sessions:
+        <br>
+        School Session: <%= @patient.school_session %>
+        <br>
+        Home Session: <%= @patient.home_session %>
+      </p>
+    </div>
 
+  <div class="col-md-5">
+    <h3 class="text-center">List of Observations</h3>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">My Observations</h3>
+      </div>
+      <ul class="list-group">
+        <% if @my_obs.count > 0 %>
+          <% @my_obs.each do |o| %>
+            <li class="list-group-item"><%= link_to o.program, observation_path(o)%> (<%= o.goal %>) on <%= o.date %></li>
+          <% end %>
+        <% else %>
+          <li class="list-group-item">None</li>
+        <% end %>
+      </ul>
+    </div>
 
-<br>
-<br>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Other Observations</h3>
+        </div>
+        <ul class="list-group">
+          <% if @other_obs.count > 0 %>
+            <% @other_obs.each do |o| %>
+              <li class="list-group-item"><%= link_to o.program, observation_path(o)%> (<%= o.goal %>) on <%= o.date %></li>
+            <% end %>
+          <% else %>
+              <li class="list-group-item">None</li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+</div>
+</div>
 
 

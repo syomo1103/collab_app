@@ -10,24 +10,28 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+   <div class="field">
     <%= f.file_field :image %>
   </div>
   <div class="field">
     <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, :required => true %>
   </div>
   <div class="field">
     <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :field %>
+    <%= f.select :field, ['Audiology', 'Occupational Therapy', 'Psychology', 'Speech Language Pathology', 'Special Education', 'Physical Therapy'], :prompt => 'Select One', :required => true %>
   </div>
   <div class="field">
     <%= f.label :role %>
-    <%= f.select :role, ['Audiologist', 'Occupational Therapist', 'Psychologist', 'Speech Language Pathologist', 'Teacher', 'Physical Therapist'], :prompt => 'Select One' %>
+    <%= f.select :role, ['Audiologist', 'Occupational Therapist', 'Psychologist', 'Speech Language Pathologist', 'Teacher', 'Physical Therapist'], :prompt => 'Select One', :required => true %>
   </div>
   <div class="field">
     <%= f.label :location %>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, :required => true %>
   </div>
   <div class="field">
   Select one:
@@ -38,15 +42,15 @@
   </div>
   <div class="field">
     <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, :required => true %>
   </div>
   <div class="field">
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, :required => true %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, :required => true %>
   </div>
   <div class="actions"><%= f.submit %></div>
 <% end %>

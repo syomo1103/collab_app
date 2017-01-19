@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
 
   has_many :observations, dependent: :destroy
   has_many :patients, through: :observations
+  has_many :comments
 end

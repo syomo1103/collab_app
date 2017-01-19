@@ -1,21 +1,36 @@
-<h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-<div class="profile-pic">
-  <%= image_tag current_user.image.url, class:'img-responsive rounded image-cropper', height: '300' %>
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1 class="text-center"><%= @user.first_name %> <%= @user.last_name %></h1>
+    <br>
+    <%= image_tag @user.image.url, class:'img-responsive rounded image-cropper'%>
+    <br>
+    <% if @user == current_user %>
+    <span><%= link_to 'Edit Profile', edit_user_path, class: 'btn btn-default'%></span>
+    <span><%= link_to "Back to Dashboard", patients_path, class: 'btn btn-default'%></span>
+    <% else %>
+    <span><%= link_to "Back to Dashboard", patients_path, class: 'btn btn-default'%></span>
+    <% end %>
+  </div>
 </div>
+
+
+
+<!-- <div class="profile-pic">
+  <%#= image_tag @user.image.url, class:'img-responsive rounded image-cropper'%>
+</div> -->
 <hr>
 <p>
-  Role: <%= current_user.role %>
+  Role: <%= @user.role %>
   <br>
-  Location: <%= current_user.location %>
+  Location: <%= @user.location %>
   <br>
-  Sector(s): <%= current_user.sector %>
+  Sector(s): <%= @user.sector %>
   <br>
-  Email: <%= current_user.email %>
+  Email: <%= @user.email %>
   <br>
 </p>
 
-<%= link_to 'Edit', edit_user_path %> |
-<%= link_to "Back to Dashboard", patients_path %>
+
 <br>
 <br>
 

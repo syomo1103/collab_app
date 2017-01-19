@@ -19,14 +19,17 @@
   <section id="caseload">
     <div class="row">
     <% current_user.patients.distinct.each do |p| %>
-        <div class="col-md-3 text-center">
-          <div id="profile-pic">
-            <%= image_tag p.image.url, class:'img-responsive rounded image-cropper', height: '300' %>
-          </div>
+        <div class="col-xs-3 text-center caseload-item">
+        <!-- <div class="caption"> -->
+          <!-- <div class="caption-content"> -->
+         <!--  </div>
+        </div> -->
+        <div class="image-cropper" id="index-pic">
+          <%= link_to (image_tag(p.image.url)), patient_path(p) %>
+        </div>
           <%= p.first_name %>
           <%= p.last_name %>
           <br>
-          <%= link_to 'Patient Details', patient_path(p) %>
         </div>
   <% end %>
     </div>
