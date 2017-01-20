@@ -1,7 +1,7 @@
 class CreateObservations < ActiveRecord::Migration
   def change
     create_table :observations do |t|
-      t.string :date
+      t.date :date
       t.string :goal
       t.string :program
       t.boolean :prompt
