@@ -54,7 +54,8 @@
       <ul class="list-group">
         <% if @my_obs.count > 0 %>
           <% @my_obs.each do |o| %>
-            <li class="list-group-item"><%= link_to o.program, observation_path(o)%> (<%= o.goal %>) on <%= o.date %></li>
+            <li class="list-group-item"><%= link_to o.program, observation_path(o)%> (<%= o.goal %>) on <%= o.date.strftime("%m/%d/%Y") %></li>
+
           <% end %>
         <% else %>
           <li class="list-group-item">None</li>

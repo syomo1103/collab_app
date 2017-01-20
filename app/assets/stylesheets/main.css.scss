@@ -5,8 +5,12 @@
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.navbar-default {
+  border-color: transparent;
+}
+
 .navbar, .navbar-default {
-  background-color: #0B8A94;
+  background-color: #000230;
   color: white;
   border-radius: 0px;
   margin-bottom: 0px;
@@ -21,17 +25,11 @@
   margin-top: 6px;
 }
 
-// #homepage {
-//   position: relative;
-//   background: #5C97FF;
-//   overflow: hidden;
-// }
-
 #home-page:before {
   content: "";
-  background-image: image-url('people-coffee-tea-meeting.jpg');
+  background-image: image-url('woman-notebook-working-girl.jpg');
   background-size: cover;
-  opacity: 0.7;
+  opacity: 0.6;
   top: 0;
   left: 0;
   bottom: 0;
