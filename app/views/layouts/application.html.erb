@@ -27,11 +27,8 @@
     </div>
     <p>
       <% if current_user %>
-        <!-- &nbsp;&nbsp; | &nbsp;&nbsp; -->
         <p><%= link_to 'Log Out', session_path('dummy'), method: :delete, class: 'navbar-text navbar-right btn btn-default' %></p>
-        <!-- &nbsp;&nbsp; | &nbsp;&nbsp; -->
         <p><%= link_to 'View Profile', user_path(current_user), class: 'navbar-text navbar-right', id: 'view-profile-link' %></p>
-        <!-- &nbsp;&nbsp; | &nbsp;&nbsp; -->
         <p class="navbar-text navbar-right" id="welcome-profile-link">Welcome, <%= current_user.first_name %>!</p>
       <% end %>
     </p>

@@ -16,10 +16,10 @@
     </div>
     <br>
     <% if @user == current_user %>
-    <span><%= link_to 'Edit Profile', edit_user_path, class: 'btn btn-default'%></span>
-    <span><%= link_to "Back to Dashboard", patients_path, class: 'btn btn-default'%></span>
+      <span><%= link_to 'Edit Profile', edit_user_path, class: 'btn btn-default'%></span>
+      <span><%= link_to "Back to Dashboard", patients_path, class: 'btn btn-default'%></span>
     <% else %>
-    <span><%= link_to "Back to Dashboard", patients_path, class: 'btn btn-default'%></span>
+      <span><%= link_to "Back to Dashboard", patients_path, class: 'btn btn-default'%></span>
     <% end %>
   </div>
 </div>

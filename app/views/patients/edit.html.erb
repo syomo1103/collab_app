@@ -1,54 +1,54 @@
 <div class="container">
-<div class="row">
-<div class="col-md-8 col-md-offset-2">
-<h1 class="text-center">Update Patient</h1>
-<hr>
-<%= form_for @patient do |f| %>
-  <div class="field form-group">
-    <%= f.label 'Upload Profile Picture' %>
-    <%= f.file_field :image %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="text-center">Update Patient</h1>
+      <hr>
+      <%= form_for @patient do |f| %>
+        <div class="field form-group">
+          <%= f.label 'Upload Profile Picture' %>
+          <%= f.file_field :image %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: 'form-control', :required => true %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: 'form-control', :required => true %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :diagnosis %>
+          <%= f.text_field :diagnosis, :required => true, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :age %>
+          <%= f.text_field :age, class: 'form-control', :required => true %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :gender %>
+          <%= f.select :gender, ['Female', 'Male', 'Do not disclose'], :prompt => 'Select One:', class: 'form-control', :required => true %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :parent %>
+          <%= f.text_field :parent, :required => true, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :parent_email %>
+          <%= f.email_field :parent_email, :required => true, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+        Select all that apply:
+        <br>
+          <%= f.check_box :home_session %>
+          <%= f.label :home_session %>
+          <br>
+          <%= f.check_box :school_session %>
+          <%= f.label :school_session %>
+        </div>
+        <%= f.submit "Update Patient", class: 'btn btn-default'%> <%= link_to "Cancel", patient_path(@patient), class: 'btn btn-default' %>
+      <% end %>
+    </div>
   </div>
-  <div class="field form-group">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class: 'form-control', :required => true %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class: 'form-control', :required => true %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :diagnosis %>
-    <%= f.text_field :diagnosis, :required => true, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :age %>
-    <%= f.text_field :age, class: 'form-control', :required => true %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :gender %>
-    <%= f.select :gender, ['Female', 'Male', 'Do not disclose'], :prompt => 'Select One:', class: 'form-control', :required => true %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :parent %>
-    <%= f.text_field :parent, :required => true, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :parent_email %>
-    <%= f.email_field :parent_email, :required => true, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-  Select all that apply:
-  <br>
-    <%= f.check_box :home_session %>
-    <%= f.label :home_session %>
-    <br>
-    <%= f.check_box :school_session %>
-    <%= f.label :school_session %>
-  </div>
-  <%= f.submit "Update Patient", class: 'btn btn-default'%> <%= link_to "Cancel", patient_path(@patient), class: 'btn btn-default' %>
-<% end %>
-</div>
-</div>
 </div>
 
 

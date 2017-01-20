@@ -1,9 +1,9 @@
 <div class="container" id="contain-login">
-<div class="text-center">
-  <h1>Log In</h1>
-  <p id="alert"><%= alert %></p>
-</div>
-<%= form_tag sessions_path, class: 'form-horizontal' do %>
+  <div class="text-center">
+    <h1>Log In</h1>
+    <p id="alert"><%= alert %></p>
+  </div>
+  <%= form_tag sessions_path, class: 'form-horizontal' do %>
   <div class="field form-group">
     <%= label_tag :email, nil, class: 'control-label col-sm-2' %>
     <div class="col-sm-10">

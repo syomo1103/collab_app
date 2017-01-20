@@ -45,23 +45,23 @@
       </p>
     </div>
 
-  <div class="col-md-5">
-    <h3 class="text-center">List of Observations</h3>
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <h3 class="panel-title">My Observations</h3>
-      </div>
-      <ul class="list-group">
-        <% if @my_obs.count > 0 %>
-          <% @my_obs.each do |o| %>
-            <li class="list-group-item"><%= link_to o.program, observation_path(o)%> (<%= o.goal %>) on <%= o.date.strftime("%m/%d/%Y") %></li>
+    <div class="col-md-5">
+      <h3 class="text-center">List of Observations</h3>
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">My Observations</h3>
+        </div>
+        <ul class="list-group">
+          <% if @my_obs.count > 0 %>
+            <% @my_obs.each do |o| %>
+              <li class="list-group-item"><%= link_to o.program, observation_path(o)%> (<%= o.goal %>) on <%= o.date.strftime("%m/%d/%Y") %></li>
 
+            <% end %>
+          <% else %>
+            <li class="list-group-item">None</li>
           <% end %>
-        <% else %>
-          <li class="list-group-item">None</li>
-        <% end %>
-      </ul>
-    </div>
+        </ul>
+      </div>
 
       <div class="panel panel-info">
         <div class="panel-heading">
@@ -77,8 +77,8 @@
           <% end %>
         </ul>
       </div>
+    </div>
   </div>
-</div>
 </div>
 
 

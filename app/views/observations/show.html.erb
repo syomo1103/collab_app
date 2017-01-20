@@ -36,31 +36,30 @@
       </div>
 
   <!-- List group -->
-
-  <ul class="list-group">
-    <% @observation.comments.each do |c| %>
-      <li class="list-group-item">
-        <%= c.content %> <br><br>
-        @<%= link_to c.user.first_name, user_path(c.user.id) %>
-        added <%= time_ago_in_words(c.created_at) %> ago
-        <% if c.user == current_user %>
-          <span>
-            <%= link_to '', comment_path(c), method: :delete, data: {confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-trash pull-right' %>
-          </span>
+      <ul class="list-group">
+        <% @observation.comments.each do |c| %>
+          <li class="list-group-item">
+            <%= c.content %> <br><br>
+            @<%= link_to c.user.first_name, user_path(c.user.id) %>
+            added <%= time_ago_in_words(c.created_at) %> ago
+            <% if c.user == current_user %>
+              <span>
+                <%= link_to '', comment_path(c), method: :delete, data: {confirm: 'Are you sure?'}, class: 'glyphicon glyphicon-trash pull-right' %>
+              </span>
+            <% end %>
+          </li>
         <% end %>
-      </li>
-    <% end %>
-  </ul>
-</div>
+      </ul>
+    </div>
 
-    <%= form_for [@observation, @comment] do |f| %>
-    <span class="field form-group">
-      <%= f.text_area :content, class: 'form-control', :required => true %>
-    </span>
-    <span class="actions">
-      <%= f.submit "Add Comment", class: 'btn btn-primary', id: 'comment-button' %>
-    </span>
-    <% end %>
+      <%= form_for [@observation, @comment] do |f| %>
+      <span class="field form-group">
+        <%= f.text_area :content, class: 'form-control', :required => true %>
+      </span>
+      <span class="actions">
+        <%= f.submit "Add Comment", class: 'btn btn-primary', id: 'comment-button' %>
+      </span>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>

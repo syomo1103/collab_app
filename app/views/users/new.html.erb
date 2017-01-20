@@ -1,69 +1,69 @@
 <div class="container">
-<div class="row">
-<div class="col-md-8 col-md-offset-2">
-<h1 class="text-center">Create an Account</h1>
-<hr>
-<%= form_for @user, html: { multipart: true } do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-        <li><%= message %></li>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="text-center">Create an Account</h1>
+      <hr>
+      <%= form_for @user, html: { multipart: true } do |f| %>
+        <% if @user.errors.any? %>
+          <div class="error_messages">
+            <h2>Form is invalid</h2>
+            <ul>
+              <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+        <div class="field form-group">
+          <%= f.label 'Upload Profile Picture' %>
+          <%= f.file_field :image %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, :required => true, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, :required => true, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :field %>:
+          <%= f.select :field, ['Audiology', 'Occupational Therapy', 'Psychology', 'Speech Language Pathology', 'Special Education', 'Physical Therapy'], :prompt => 'Select One', :required => true, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :role %>:
+          <%= f.select :role, ['Audiologist', 'Occupational Therapist', 'Psychologist', 'Speech Language Pathologist', 'Teacher', 'Physical Therapist'], :prompt => 'Select One', :required => true, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :location %>
+          <%= f.text_field :location, :required => true, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+        Select one:
+          <%= f.radio_button :sector, "private" %>
+          <%= f.label :sector_private, "I work in the private sector" %>
+          <%= f.radio_button :sector, "public" %>
+          <%= f.label :sector_public, "I work in the public sector" %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, :required => true, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, :required => true, class: 'form-control' %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, :required => true, class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Create User", class: 'btn btn-default' %>
+          <%= link_to "Cancel", root_path, class: 'btn btn-default' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-  <div class="field form-group">
-    <%= f.label 'Upload Profile Picture' %>
-    <%= f.file_field :image %>
   </div>
-  <div class="field form-group">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, :required => true, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, :required => true, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :field %>:
-    <%= f.select :field, ['Audiology', 'Occupational Therapy', 'Psychology', 'Speech Language Pathology', 'Special Education', 'Physical Therapy'], :prompt => 'Select One', :required => true, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :role %>:
-    <%= f.select :role, ['Audiologist', 'Occupational Therapist', 'Psychologist', 'Speech Language Pathologist', 'Teacher', 'Physical Therapist'], :prompt => 'Select One', :required => true, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :location %>
-    <%= f.text_field :location, :required => true, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-  Select one:
-    <%= f.radio_button :sector, "private" %>
-    <%= f.label :sector_private, "I work in the private sector" %>
-    <%= f.radio_button :sector, "public" %>
-    <%= f.label :sector_public, "I work in the public sector" %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, :required => true, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, :required => true, class: 'form-control' %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, :required => true, class: 'form-control' %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Create User", class: 'btn btn-default' %>
-    <%= link_to "Cancel", root_path, class: 'btn btn-default' %>
-  </div>
-<% end %>
-</div>
-</div>
 </div>
 
 

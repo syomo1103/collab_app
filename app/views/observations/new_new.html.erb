@@ -1,43 +1,43 @@
 <div class="container">
-<div class="row">
-<div class="col-md-8 col-md-offset-2">
-<h1 class="text-center">New Observation</h1>
-<hr>
-<%= form_for [@patient, @observation] do |f| %>
-<div class="form-group">
-  <%= f.label :patient %>
-  <%= f.collection_select(:patient_id, Patient.all, :id, :first_name, prompt: true)%>
-</div>
-<div><%= link_to 'Patient not listed?', new_patient_path %></div>
-<div class="form-group">
-  <%= f.label :date %>
-  <%= f.date_field :date, :value => Date.today, class: 'form-control', :required => true %>
-</div>
-<div class="form-group">
-  <%= f.label :goal %>
-  <%= f.text_field :goal, :value => current_user.field, class: 'form-control', :required => true %>
-</div>
-<div class="form-group">
-  <%= f.label :program, 'Target Program' %>
-  <%= f.text_field :program, class: 'form-control', :required => true %>
-</div>
-<div class="form-group">
-  <%= f.label :prompt %>
-  <%= f.text_field :prompt, class: 'form-control' %>
-</div>
-<div class="form-group">
-  <%= f.label :behavior %>
-  <%= f.text_field :behavior, class: 'form-control' %>
-</div>
-<div class="form-group">
-  <%= f.label :session_notes %>
-  <%= f.text_area :session_notes, class: 'form-control', :required => true %>
-</div>
-<div class="actions">
-  <%= f.submit "Save", class: 'btn btn-default' %>
-  <%= link_to "Cancel", patients_path, class: 'btn btn-default' %>
-</div>
-<% end %>
-</div>
-</div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="text-center">New Observation</h1>
+      <hr>
+      <%= form_for [@patient, @observation] do |f| %>
+      <div class="form-group">
+        <%= f.label :patient %>
+        <%= f.collection_select(:patient_id, Patient.all, :id, :first_name, prompt: true)%>
+      </div>
+      <div><%= link_to 'Patient not listed?', new_patient_path %></div>
+      <div class="form-group">
+        <%= f.label :date %>
+        <%= f.date_field :date, :value => Date.today, class: 'form-control', :required => true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :goal %>
+        <%= f.text_field :goal, :value => current_user.field, class: 'form-control', :required => true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :program, 'Target Program' %>
+        <%= f.text_field :program, class: 'form-control', :required => true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :prompt %>
+        <%= f.text_field :prompt, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :behavior %>
+        <%= f.text_field :behavior, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :session_notes %>
+        <%= f.text_area :session_notes, class: 'form-control', :required => true %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Save", class: 'btn btn-default' %>
+        <%= link_to "Cancel", patients_path, class: 'btn btn-default' %>
+      </div>
+    <% end %>
+    </div>
+  </div>
 </div>
