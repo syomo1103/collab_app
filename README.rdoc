@@ -1,12 +1,12 @@
 == Project 2: CollabPort
 
-## Description
+== Description
 
 **CollabPortal** was designed to provide a more comprehensive and collaborative environment for teachers and specialists while working with a child that has an Individualized Education Plan (IEP).
 With CollabPortal, teachers and specialists are able to view all of their patients (caseload) upon signing in. Taking a closer look, teachers and specialists are able to view specific details for each patient, including all **Observations** (with the option to comment)!
 Data collection is made easy whether the patient is currently within your caseload or not.
 
-## Technologies Used
+== Technologies Used
 
 List of Programs:
 
@@ -15,12 +15,12 @@ List of Programs:
 * Bootstrap
 
 
-## Getting Started
+== Getting Started
 
 Go to https://collabportal.herokuapp.com/ to sign up!
 
 
-## Next Steps
+== Next Steps
 
 * Notifications!
 
