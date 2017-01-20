@@ -1,28 +1,33 @@
-== README
+== Project 2: CollabPort
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+**CollabPortal** was designed to provide a more comprehensive and collaborative environment for teachers and specialists while working with a child that has an Individualized Education Plan (IEP).
+With CollabPortal, teachers and specialists are able to view all of their patients (caseload) upon signing in. Taking a closer look, teachers and specialists are able to view specific details for each patient, including all **Observations** (with the option to comment)!
+Data collection is made easy whether the patient is currently within your caseload or not.
 
-* Ruby version
+## Technologies Used
 
-* System dependencies
+List of Programs:
 
-* Configuration
+* Ruby 4.2.5.1
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Bootstrap
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Getting Started
+
+Go to https://collabportal.herokuapp.com/ to sign up!
+
+
+## Next Steps
+
+* Notifications!
+
+* Responsive for screen sizes
+
+* Allowing lowercase/uppercase for logging back in
+
+* Rerouting root if logged in to dashboard page
+
+* Option to email parents a copy of the observation
