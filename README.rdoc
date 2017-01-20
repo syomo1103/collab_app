@@ -27,8 +27,4 @@ Go to https://collabportal.herokuapp.com/ to sign up!
 
 * Responsive for screen sizes
 
-* Allowing lowercase/uppercase for logging back in
-
-* Rerouting root if logged in to dashboard page
-
 * Option to email parents a copy of the observation
