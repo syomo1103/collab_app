@@ -10,9 +10,10 @@ Data collection is made easy whether the patient is currently within your caselo
 
 List of Programs:
 
-* Ruby 4.2.5.1
-
-* Bootstrap
+* Ruby on Rails
+* HTML
+* CSS
+  * Bootstrap
 
 
 == Getting Started
