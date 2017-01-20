@@ -28,7 +28,8 @@
   <%= f.label :session_notes %>
   <%= f.text_area :session_notes, class: 'form-control', :required => true %>
 </div>
-<%= f.submit "Save" %> | <%= link_to "Cancel", @observation %>
+<%= f.submit "Save", class: 'btn btn-default' %>
+<%= link_to "Cancel", @observation, class: 'btn btn-default' %>
 <% end %>
 </div>
 </div>

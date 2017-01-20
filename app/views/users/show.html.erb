@@ -4,6 +4,17 @@
     <br>
     <%= image_tag @user.image.url, class:'img-responsive rounded image-cropper'%>
     <br>
+    <div>
+      Role: <%= @user.role %>
+      <br>
+      Location: <%= @user.location %>
+      <br>
+      Sector(s): <%= @user.sector %>
+      <br>
+      Email: <%= mail_to @user.email %>
+      <br>
+    </div>
+    <br>
     <% if @user == current_user %>
     <span><%= link_to 'Edit Profile', edit_user_path, class: 'btn btn-default'%></span>
     <span><%= link_to "Back to Dashboard", patients_path, class: 'btn btn-default'%></span>
@@ -13,24 +24,4 @@
   </div>
 </div>
 
-
-
-<!-- <div class="profile-pic">
-  <%#= image_tag @user.image.url, class:'img-responsive rounded image-cropper'%>
-</div> -->
-<hr>
-<p>
-  Role: <%= @user.role %>
-  <br>
-  Location: <%= @user.location %>
-  <br>
-  Sector(s): <%= @user.sector %>
-  <br>
-  Email: <%= @user.email %>
-  <br>
-</p>
-
-
-<br>
-<br>
 

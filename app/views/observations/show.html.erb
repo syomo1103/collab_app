@@ -2,9 +2,9 @@
 <div class="text-center">
 <% if @observation.user == current_user %>
   <%= link_to 'Edit', edit_observation_path %>
-  |
+  &nbsp; | &nbsp;
   <%= link_to "Delete Observation", observation_path(@observation), method: :delete, data: {confirm: 'Are you sure?'} %>
-  |
+  &nbsp; | &nbsp;
   <%= link_to "Back to Patient", patient_path(@observation.patient) %>
   <% else %>
   <%= link_to "Back to Patient", patient_path(@observation.patient) %>

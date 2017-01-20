@@ -16,9 +16,9 @@
     <%= f.label :last_name %>
     <%= f.text_field :last_name, class: 'form-control', :required => true %>
   </div>
-  <div>
+  <div class="field form-group">
     <%= f.label :diagnosis %>
-    <%= f.text_field :diagnosis, :required => true %>
+    <%= f.text_field :diagnosis, :required => true, class: 'form-control' %>
   </div>
   <div class="field form-group">
     <%= f.label :age %>
@@ -28,13 +28,13 @@
     <%= f.label :gender %>
     <%= f.select :gender, ['Female', 'Male', 'Do not disclose'], :prompt => 'Select One:', class: 'form-control', :required => true %>
   </div>
-  <div>
+  <div class="field form-group">
     <%= f.label :parent %>
-    <%= f.text_field :parent, :required => true %>
+    <%= f.text_field :parent, :required => true, class: 'form-control' %>
   </div>
-  <div>
+  <div class="field form-group">
     <%= f.label :parent_email %>
-    <%= f.email_field :parent_email, :required => true %>
+    <%= f.email_field :parent_email, :required => true, class: 'form-control' %>
   </div>
   <div class="field form-group">
   Select all that apply:
@@ -47,7 +47,7 @@
   </div>
   <div class="actions">
     <%= f.submit "Submit", class: 'btn btn-default' %>
-    <%= link_to 'Back', observations_new_path, class: 'btn btn-default'%>
+    <%= link_to 'Cancel', observations_new_path, class: 'btn btn-default'%>
   </div>
 <% end %>
 </div>
