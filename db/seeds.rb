@@ -33,15 +33,15 @@ puts User.count
 ])
 
 Observation.create([
-  {user: @users[0], patient: @patients[0], date: '1/12/2017', goal: 'Speech', program: 'Phonetics', prompt: true, behavior: 'tantrum', session_notes: 'progress made'},
-  {user: @users[0], patient: @patients[1], date: '1/13/2017', goal: 'Speech', program: 'Accent Reduction', prompt: false, behavior: 'none', session_notes: 'progress made'},
-  {user: @users[0], patient: @patients[2], date: '1/17/2017', goal: 'Speech', program: 'Accent Reduction', prompt: false, behavior: 'none', session_notes: 'no progress made'},
+  {user: @users[0], patient: @patients[0], date: '01/12/2017', goal: 'Speech', program: 'Phonetics', prompt: true, behavior: 'tantrum', session_notes: 'progress made'},
+  {user: @users[0], patient: @patients[1], date: '01/13/2017', goal: 'Speech', program: 'Accent Reduction', prompt: false, behavior: 'none', session_notes: 'progress made'},
+  {user: @users[0], patient: @patients[2], date: '01/17/2017', goal: 'Speech', program: 'Accent Reduction', prompt: false, behavior: 'none', session_notes: 'no progress made'},
   {user: @users[1], patient: @patients[3], date: '12/12/2016', goal: 'OT', program: 'Gross Motor', prompt: false, behavior: 'crying', session_notes: 'progress made'},
-  {user: @users[1], patient: @patients[4], date: '1/13/2017', goal: 'OT', program: 'Fine Motor', prompt: true, behavior: 'none', session_notes: 'progress made'},
-  {user: @users[1], patient: @patients[5], date: '1/17/2017', goal: 'OT', program: 'Sensory Reduction', prompt: false, behavior: 'tantrum', session_notes: 'no progress made'},
+  {user: @users[1], patient: @patients[4], date: '01/13/2017', goal: 'OT', program: 'Fine Motor', prompt: true, behavior: 'none', session_notes: 'progress made'},
+  {user: @users[1], patient: @patients[5], date: '01/17/2017', goal: 'OT', program: 'Sensory Reduction', prompt: false, behavior: 'tantrum', session_notes: 'no progress made'},
   {user: @users[2], patient: @patients[6], date: '12/12/2016', goal: 'Special Education', program: 'Writing', prompt: false, behavior: 'crying', session_notes: 'progress made'},
-  {user: @users[2], patient: @patients[7], date: '1/13/2017', goal: 'Special Education', program: 'Reading', prompt: true, behavior: 'none', session_notes: 'progress made'},
-  {user: @users[2], patient: @patients[8], date: '1/17/2017', goal: 'Special Education', program: 'Math', prompt: false, behavior: 'tantrum', session_notes: 'no progress made'}
+  {user: @users[2], patient: @patients[7], date: '01/13/2017', goal: 'Special Education', program: 'Reading', prompt: true, behavior: 'none', session_notes: 'progress made'},
+  {user: @users[2], patient: @patients[8], date: '01/17/2017', goal: 'Special Education', program: 'Math', prompt: false, behavior: 'tantrum', session_notes: 'no progress made'}
 ])
 
 puts "Created #{User.count} users.\nCreated #{Patient.count} patients.\nCreated #{Observation.count} observations."

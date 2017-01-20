@@ -20,7 +20,7 @@
       <div class="panel-heading"><%= @observation.goal %> with <%= @observation.user.first_name %> on <%= @observation.date %></div>
       <div class="panel-body">
         <p>
-        Date: <%= @observation.date %>
+        Date: <%= @observation.date.strftime("%m/%d/%Y") %>
         <br>
         Goal: <%= @observation.goal %>
         <br>
