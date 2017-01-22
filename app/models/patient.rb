@@ -5,18 +5,20 @@ class Patient < ActiveRecord::Base
   has_many :observations
   has_many :users, through: :observations
 
+  # def self.search(search)
+  #   if search
+  #     where("first_name LIKE ?", "%#{search}%")
+  #   else
+  #     current_user.patients.distinct
+  #   end
+  # end
+
   def self.search(search)
     if search
-      where("first_name LIKE ?", "%#{search}%".downcase)
-      where("last_name LIKE ?", "%#{search}%".downcase)
+      Patient.all.where("LOWER(first_name) LIKE ?", "%#{search}%".downcase)
     else
       @my_patients
     end
   end
-
-  # def self.search(search)
-  #   where("first_name ILIKE ?", "%#{search}%")
-  #   where("last_name ILIKE ?", "%#{search}%")
-  # end
 
 end

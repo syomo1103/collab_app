@@ -1,12 +1,13 @@
 class PatientsController < ApplicationController
 
   def index
-    # @patients = Patient.search(params[:search])
-    @my_patients = current_user.patients.distinct
+    # @my_patients = current_user.patients.distinct
     @my_patients = current_user.patients.search(params[:search])
+    # @patients = Patient.search(params[:search])
+    # @my_patients = Patient.search(params[:search])
 
     # if params[:search]
-    #   @my_patients = current_user.patients.search(params[:search])
+    #   @my_patients = Patient.search(params[:search])
     # else
     #   @my_patients
     # end
