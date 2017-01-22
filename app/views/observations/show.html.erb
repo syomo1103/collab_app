@@ -17,22 +17,38 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
   <!-- Default panel contents -->
-      <div class="panel-heading"><%= @observation.goal %> with <%= @observation.user.first_name %> on <%= @observation.date %></div>
+      <div class="panel-heading">
+        <%= @observation.goal %> with <%= @observation.user.first_name %> on <%= @observation.date %>
+      </div>
       <div class="panel-body">
         <p>
-        Date: <%= @observation.date.strftime("%m/%d/%Y") %>
+          Date: <%= @observation.date.strftime("%m/%d/%Y") %>
         <br>
-        Goal: <%= @observation.goal %>
+          Goal: <%= @observation.goal %>
         <br>
-        Program: <%= @observation.program %>
+          Program: <%= @observation.program %>
         <br>
-        Prompt(s): <%= @observation.prompt %>
+          Prompt(s): <%= @observation.prompt %>
         <br>
-        Behavior(s): <%= @observation.behavior %>
+          Behavior(s): <%= @observation.behavior %>
         <br>
-        Session Notes: <%= @observation.session_notes %>
+          Session Notes: <%= @observation.session_notes %>
         <br>
         </p>
+        <div class="panel-bottom pull-right">
+          <% if @observation.likes.count > 0 %>
+            <% if @observation.likes.count > 1 %>
+              <span> <%= @observation.likes.count %> likes </span> &nbsp;&nbsp;&nbsp;
+            <% else %>
+              <span> <%= @observation.likes.count %> like </span> &nbsp;&nbsp;&nbsp;
+            <% end %>
+          <% end %>
+            <% if current_user.like?(@observation.id) %>
+              <%= link_to "", unlike_path(@observation), class: "glyphicon glyphicon-thumbs-down" %>
+            <% else %>
+              <%= link_to "", like_path(@observation), class: "glyphicon glyphicon-thumbs-up" %>
+            <% end %>
+        </div>
       </div>
 
   <!-- List group -->

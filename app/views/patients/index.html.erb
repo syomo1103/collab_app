@@ -5,6 +5,16 @@
     <%= link_to 'Create Observation for New Patient', observations_new_path, class: 'btn btn-primary'%>
   </div>
 </div>
+
+<% if current_user.patients.distinct.count > 3 %>
+  <%= form_tag patients_path, method: :get, class: "navbar-form pull-right", role: "search" do %>
+    <div class="form-group form-inline">
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Patient's Name" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-default", id: 'search-button' %>
+    </div>
+  <% end %>
+<% end %>
+
 <hr>
  <!-- Caseload Grid Section -->
 <div class="container">

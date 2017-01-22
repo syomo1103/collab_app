@@ -34,7 +34,7 @@
         Specialist(s):
         <ul>
         <% @users.distinct.each do |u| %>
-          <li><%= u.first_name %></li>
+          <li><%=link_to u.first_name, user_path(u) %></li>
         <% end %>
         </ul>
         Type of Sessions:
@@ -55,7 +55,6 @@
           <% if @my_obs.count > 0 %>
             <% @my_obs.each do |o| %>
               <li class="list-group-item"><%= link_to o.program, observation_path(o)%> (<%= o.goal %>) on <%= o.date.strftime("%m/%d/%Y") %></li>
-
             <% end %>
           <% else %>
             <li class="list-group-item">None</li>

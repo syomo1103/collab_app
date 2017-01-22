@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get '/observations/new', to: 'observations#new_new'
   post '/observations', to: 'observations#create_new'
 
+  get '/observations/:observation_id/like', to: 'users#like', as: :like
+  get '/observations/:observation_id/unlike', to: 'users#unlike', as: :unlike
+
   resources :patients, shallow: true do
     resources :observations do
       resources :comments

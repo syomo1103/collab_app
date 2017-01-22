@@ -31,6 +31,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def like
+    current_user.like!(params[:observation_id]) unless current_user.like?(params[:observation_id])
+    redirect_to :back
+  end
+
+  def unlike
+    current_user.unlike!(params[:observation_id]) if current_user.like?(params[:observation_id])
+    redirect_to :back
+  end
+
   private
    def user_params
       params.require(:user).permit(:first_name, :last_name, :role, :location, :sector, :email, :password, :password_confirmation, :image)
