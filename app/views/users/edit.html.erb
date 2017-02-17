@@ -51,11 +51,11 @@
         </div>
         <div class="field form-group">
           <%= f.label :password %>
-          <%= f.password_field :password, :required => true, class: 'form-control' %>
+          <%= f.password_field :password, class: 'form-control' %>
         </div>
         <div class="field form-group">
           <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, :required => true, class: 'form-control' %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
         <div class="actions"><%= f.submit "Save changes", class: 'btn btn-default'%>
         <%= link_to "Back to Profile", user_path, class: 'btn btn-default' %></div>

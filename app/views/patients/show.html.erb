@@ -3,7 +3,7 @@
     <h1 class="text-center"><%= @patient.first_name %> <%= @patient.last_name %></h1>
     <br>
     <%= image_tag @patient.image.url, class:'img-responsive rounded image-cropper' %>
-    <%= link_to 'Create New Observation', new_patient_observation_path(@patient), class: 'btn btn-primary'%>
+    <%= link_to 'Create New Observation', new_patient_observation_path(@patient), class: 'btn btn-primary'%> &nbsp;
     <%= mail_to @patient.parent_email, 'Contact Parent', class: 'btn btn-primary' %>
   </div>
 </div>
@@ -29,12 +29,14 @@
         <br>
         Gender: <%= @patient.gender %>
         <br>
+        Diagnosis: <%= @patient.diagnosis %>
+        <br>
         Parent(s): <%= @patient.parent %>
         <br>
         Specialist(s):
         <ul>
         <% @users.distinct.each do |u| %>
-          <li><%=link_to u.first_name, user_path(u) %></li>
+          <li><%=link_to u.first_name + u.last_name, user_path(u) %></li>
         <% end %>
         </ul>
         Type of Sessions:

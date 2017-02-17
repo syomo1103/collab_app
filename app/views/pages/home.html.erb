@@ -1,4 +1,6 @@
 <div class="container" id="contain-login">
+
+
   <div class="text-center">
     <h1>Log In</h1>
     <p id="alert"><%= alert %></p>
@@ -18,11 +20,95 @@
   </div>
   <div class="field form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <span class="actions"><%= submit_tag "Log In", class: 'btn btn-default' %></span>
-      <span id="create-account-link"><%= link_to 'Need an account?', new_user_path %></span>
+      <span class="actions"><%= submit_tag "Log In", class: 'btn btn-primary', id: 'log-in-button'%></span>
+      <!-- new_user_path -->
+      &nbsp;
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createAccountModal">
+        Need an account?
+      </button>
     </div>
   </div>
 <% end %>
+      <!-- <span data-toggle="modal" data-target="#create-account"><%= link_to 'Need an account?' %></span> -->
+      <!-- <span data-toggle="modal" data-target="#create-account">Need an account?</span> -->
+      <!-- Button trigger modal -->
+
+  <div class="modal fade" id="createAccountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel", aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title text-center" id="myModalLabel">Create Account</h4>
+        </div>
+        <div class="modal-body" id="sign-up-modal-body">
+        <%= form_for @user, html: { multipart: true } do |f| %>
+          <% if @user.errors.any? %>
+            <div class="error_messages">
+              <h2>Form is invalid</h2>
+              <ul>
+                <% for message in @user.errors.full_messages %>
+                <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="field form-group">
+            <%= f.label 'Upload Profile Picture' %>
+            <%= f.file_field :image%>
+          </div>
+          <div class="field form-group">
+            <%= f.label :first_name %>*
+            <%= f.text_field :first_name, :required => true, class: 'form-control' %>
+          </div>
+          <div class="field form-group">
+            <%= f.label :last_name %>*
+            <%= f.text_field :last_name, :required => true, class: 'form-control' %>
+          </div>
+          <div class="field form-group">
+            <%= f.label :field %>*
+            <br>
+            <%= f.select :field, ['Audiology', 'Occupational Therapy', 'Psychology', 'Speech Language Pathology', 'Special Education', 'Physical Therapy'], :prompt => 'Select One', :required => true, class: 'form-control' %>*
+          </div>
+          <div class="field form-group">
+            <%= f.label :role %>*
+            <br>
+            <%= f.select :role, ['Audiologist', 'Occupational Therapist', 'Psychologist', 'Speech Language Pathologist', 'Teacher', 'Physical Therapist'], :prompt => 'Select One', :required => true, class: 'form-control' %>*
+          </div>
+          <div class="field form-group">
+            <%= f.label :location %>
+            <%= f.text_field :location, class: 'form-control', placeholder: 'Miami, FL' %>
+          </div>
+          <div class="field form-group">
+          Select one:
+            <%= f.radio_button :sector, "private" %>
+            <%= f.label :sector_private, "Private sector" %>
+            <%= f.radio_button :sector, "public" %>
+            <%= f.label :sector_public, "Public sector" %>
+          </div>
+          <div class="field form-group">
+            <%= f.label :email %>*
+            <%= f.email_field :email, :required => true, class: 'form-control' %>
+          </div>
+          <div class="field form-group">
+            <%= f.label :password %>*
+            <%= f.password_field :password, :required => true, class: 'form-control' %>
+          </div>
+          <div class="field form-group">
+            <%= f.label :password_confirmation %>*
+            <%= f.password_field :password_confirmation, :required => true, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <span class="actions">
+            <%= f.submit "Create User", class: 'btn btn-primary' %>
+          </span>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 

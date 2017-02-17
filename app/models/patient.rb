@@ -13,12 +13,12 @@ class Patient < ActiveRecord::Base
   #   end
   # end
 
-  def self.search(search)
-    if search
-      Patient.all.where("LOWER(first_name) LIKE ?", "%#{search}%".downcase)
-    else
-      @my_patients
-    end
-  end
+  # def self.search(search)
+  #   if search
+  #     Patient.all.where("LOWER(first_name) LIKE ?", "%#{search}%".downcase)
+  #   else
+  #     @my_patients
+  #   end
+  # end
 
 end

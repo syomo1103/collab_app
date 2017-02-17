@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :liked_observations, through: :likes, source: :observation
 
-
   def like!(observation_id)
     self.likes.create(observation_id: observation_id)
   end
@@ -23,6 +22,11 @@ class User < ActiveRecord::Base
 
   def like?(observation_id)
     self.likes.find_by(observation_id: observation_id)
+  end
+
+  private
+  def set_defaults
+    self.image = "/:attachment/:style/missing.png" if self.image.nil?
   end
 
 end
